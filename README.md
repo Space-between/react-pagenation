@@ -19,7 +19,21 @@
 
 ## REST API 스터디
 
-### 준비중
+### 과제 1 : REST API 개요, 이용방법 (React), 적용사례 정리
+
+* 이슈 등록해서 내용 정리
+
+### 과제 2 : REST API 샘플 예제
+
+* 디자인은 antd 기준으로 표시
+* https://any-api.com/ 에서 관심있는 분야의 API 선택
+* 검색, 목록, 상세를 표시하는 앱 작성
+
+## HTTP 스터디
+
+### 과제 1 : HTTP 개요, GET, POST, url, Cookie, keep-alive 개념, 버전별 차이점
+
+* 이슈 등록해서 내용 정리
 
 ## Swagger 스터디
 
