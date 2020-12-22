@@ -3,9 +3,15 @@ import { Input } from "antd";
 import axios from "axios";
 
 const { Search } = Input;
+interface KakaoSearchResult {
+  contents: string;
+  datetime: string;
+  title: string;
+  url: string;
+}
 
 export default () => {
-  const [info, setInfo] = useState<Array<object> | null>(null);
+  const [info, setInfo] = useState<Array<KakaoSearchResult> | null>(null);
   // console.log("info", info);
   const onSearch = async (value: string) => {
     try {
@@ -33,7 +39,7 @@ export default () => {
       {console.log("info", typeof info)}
       <ul>
         {info
-          ? info.map((data: any) => (
+          ? info.map((data: KakaoSearchResult) => (
               <a href={data.url} style={{ color: "black" }}>
                 <li>{data.contents}</li>
               </a>
