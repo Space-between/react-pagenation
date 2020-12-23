@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "prettier",
+    "airbnb",
+    "airbnb/hooks",
+    "prettier/react",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "max-classes-per-file": 0,
+    "no-use-before-define": 0, // import React from 'react'; 불러올때 생기는 에러 제거
+    "import/no-unresolved": "off", // 경로지정에러 제거
+    "import/extensions": 0, // 경로지정에러 제거
+    "@typescript-eslint/explicit-module-boundary-types": 0, // 함수에러제거
+    "react/jsx-filename-extension": 0, // 컴포넌트관련 에러
+    "react/jsx-no-target-blank": 0, // a태그 속성에 target="_blank"입력시 생기는 에러 제거
+    "react/no-array-index-key": 0, // index값을 key속성의 속성값으로 넣었을 때 생기는 에러 제거
+    "no-console": 0 // 콘솔로그 입력시 생기는 에러 제거 
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"]
+}
