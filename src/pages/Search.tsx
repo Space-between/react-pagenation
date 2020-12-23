@@ -17,7 +17,7 @@ export default () => {
     try {
       await axios({
         method: "get",
-        url: `https://dapi.kakao.com/v2/search/web?query=${value}&size=50&page=2`,
+        url: `https://dapi.kakao.com/v2/search/web?query=${value}&size=50`,
         headers: { Authorization: "KakaoAK 6c0bb4f5679728a4f6ddcef0e5eb6bd8" },
       }).then(function (response) {
         console.log(response);
@@ -41,7 +41,21 @@ export default () => {
         {info
           ? info.map((data: KakaoSearchResult) => (
               <a href={data.url} target="_blank" style={{ color: "black" }}>
-                <li>{data.contents}</li>
+                <li>
+                  {data.title
+                    .replace(/(<([^>]+)>)/gi, "")
+                    .replace(/&#34;/gi, "")
+                    .replace(/&#39;/gi, "")
+                    .replace(/&amp;/gi, "")}
+                  <br />
+                  작성시간 : {data.datetime.replace(/(<([^>]+)>)/gi, "")}
+                  <br />
+                  {data.contents
+                    .replace(/(<([^>]+)>)/gi, "")
+                    .replace(/&#34;/gi, "")
+                    .replace(/&#39;/gi, "")
+                    .replace(/&amp;/gi, "")}
+                </li>
               </a>
             ))
           : null}
