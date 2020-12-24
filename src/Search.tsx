@@ -32,7 +32,7 @@ export default () => {
 
 	return (
 		<div data-testId="test-search">
-			<Search placeholder="카카오 API를 이용한 다음 검색창" onSearch={onSearch} enterButton defaultValue="블랙핑크" />
+			<Search placeholder="카카오 API를 이용한 다음 검색창" onSearch={onSearch} enterButton defaultValue="야옹이" />
 			<ul className="ul">
 				{info
 					? info.map((data: KakaoSearchResult, index: number) => (

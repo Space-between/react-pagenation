@@ -52,10 +52,10 @@ describe('Button component', () => {
 		// const message = document.body.getElementsByClassName('ant-message-notice').length; // 안트 메세지
 		// console.log('message', message);
 		await waitFor(() => {
-			const searchResult = wrapper.getByTestId('resultli_1').innerHTML.indexOf('블랙핑크'); // indexOf메소드를 이용하여 특정 문자가 시작되는 index값을 구할 수 있다. 지금 내가 찾고자 하는 것은 "멜론X"다음에 나오는 블랙핑크를 찾는 것이므로 3이 나온다.
+			const searchResult = wrapper.getByTestId('resultli_1').innerHTML.indexOf('야옹이'); // indexOf메소드를 이용하여 특정 문자가 시작되는 index값을 구할 수 있다. 지금 내가 찾고자 하는 것은 "야옹이(웹툰작가) - 나무위키"에 있는 야옹이를 찾는 것이므로 0이 나온다.
 			console.log('html문서나오게 하기', wrapper.getByTestId('resultli_1').innerHTML);
 			console.log('searchResult', searchResult);
-			expect(searchResult).toBe(3);
+			expect(searchResult).toBe(0);
 			expect(1).toBe(1);
 		});
 	});
