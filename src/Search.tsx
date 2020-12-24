@@ -73,7 +73,7 @@ export default () => {
 					  ))
 					: null}
 			</ul>
-			{info ? <Pagination defaultCurrent={1} total={50} onChange={numberRelay} /> : null}
+			{info ? <Pagination defaultCurrent={1} total={3760} onChange={numberRelay} /> : null}
 		</div>
 	);
 };
