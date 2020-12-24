@@ -18,10 +18,10 @@
     "react/jsx-no-target-blank": 0, // a태그 속성에 target="_blank"입력시 생기는 에러 제거
     "react/no-array-index-key": 0, // index값을 key속성의 속성값으로 넣었을 때 생기는 에러 제거
     "no-console": 0, // 콘솔로그 입력시 생기는 에러 제거
-    "prettier/prettier": [ // jest.config.js에서 prettier에러 생기는거 관련해서 제거
-      "error",
+    "prettier/prettier": [ 
+      "error", 
       {
-          "endOfLine": "auto"
+          "endOfLine": "auto" // jest.config.js에서 prettier에러 생기는거 관련해서 제거
       }
   ]
   },
