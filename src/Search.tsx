@@ -78,7 +78,13 @@ export default () => {
 					: null}
 			</ul>
 			{info ? (
-				<Pagination defaultCurrent={1} total={pageAbleCount} onChange={numberRelay} showSizeChanger={false} />
+				<Pagination
+					showQuickJumper
+					defaultCurrent={1}
+					total={pageAbleCount}
+					onChange={numberRelay}
+					showSizeChanger={false}
+				/>
 			) : null}
 		</div>
 	);
