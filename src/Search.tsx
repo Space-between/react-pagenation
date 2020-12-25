@@ -13,6 +13,7 @@ interface KakaoSearchResult {
 export default () => {
 	const [info, setInfo] = useState<Array<KakaoSearchResult> | null>(null);
 	const [searchText, setSearchText] = useState<string>('');
+	const [pageAbleCount, setPageAbleCount] = useState<number | undefined>(undefined);
 
 	const onSearch = async () => {
 		searchApi(1);
@@ -23,12 +24,14 @@ export default () => {
 			try {
 				await axios({
 					method: 'get',
-					url: `https://dapi.kakao.com/v2/search/web?query=${searchText}&size=50&page=${num}`,
+					url: `https://dapi.kakao.com/v2/search/web?query=${searchText}&size=10&page=${num}`,
 					headers: { Authorization: 'KakaoAK 6c0bb4f5679728a4f6ddcef0e5eb6bd8' },
 				}).then((response) => {
 					console.log(response);
 					const abc = response.data.documents;
 					setInfo(abc);
+					const abcdef = response.data.meta.pageable_count;
+					setPageAbleCount(abcdef);
 				});
 			} catch (error) {
 				console.error(error);
@@ -50,6 +53,7 @@ export default () => {
 	return (
 		<div data-testid="test-search">
 			<Search placeholder="카카오 API를 이용한 다음 검색창" onSearch={onSearch} onChange={party} enterButton />
+			{console.log('pageAbleCount', pageAbleCount)}
 			<ul className="ul">
 				{info
 					? info.map((data: KakaoSearchResult, index: number) => (
@@ -73,7 +77,7 @@ export default () => {
 					  ))
 					: null}
 			</ul>
-			{info ? <Pagination defaultCurrent={1} total={3760} onChange={numberRelay} /> : null}
+			{info ? <Pagination defaultCurrent={1} total={pageAbleCount} onChange={numberRelay} /> : null}
 		</div>
 	);
 };
