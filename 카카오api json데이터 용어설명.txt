@@ -1,5 +1,5 @@
 total_count : 검색된 문서 수
-pageable_count : total_count 중 노출 가능 문서 수(total_count에 있는 모든 검색 문서를 보여줄 수는 없다. 이것에 대한 카카오 공식답변으로는 total 값이 노출되고 있긴 하지만 OPEN API 제공 정책상 45개만 제공되고 있다고 한다. 출처 : https://devtalk.kakao.com/t/pageable-count/88418)
+pageable_count : total_count 중 노출 가능 문서 수(total_count에 있는 모든 검색 문서를 보여줄 수는 없다. 이것에 대한 카카오 공식답변으로는 total 값이 노출되고 있긴 하지만 OPEN API 제공 정책상 제한된 갯수만 제공되고 있다고 한다. 출처 : https://devtalk.kakao.com/t/pageable-count/88418)
 그리고 카카오 api에서 버그?가 있는데 아이즈원을 검색한 것을 기준으로 pageable_count에서 첫 페이지가 로드 되었을때는 pageable_count가 356이라고 알려줘서 안트디에 있는 페이지네이션 에서는 마지막페이지를 36(문서가 10개씩 보여지니까 356을 10으로 나눴을 때 35.6이 나오는데 6개의 문서도 보여줘야 하기때문에 36페이지가 보여줘야한다.)이라고 알려주는데
 정작 마지막인 36페이지로 이동하면pageable_count가 217로 바뀌면서 22페이지가 나온다. 이 말은 원래 페이지의 리스트는 22페이지가 끝인데 api버그? 때문인거 같다.
 동일한 api로 만들어진 다음 웹문서에서 검색해도 비슷한 현상이 일어난다.
