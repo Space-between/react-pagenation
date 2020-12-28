@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Input, message, Pagination } from 'antd';
+import { Input, message } from 'antd';
 import axios from 'axios';
+// import Posts from './Posts';
+import Pagination from './Pagination';
 
 const { Search } = Input;
 interface KakaoSearchResult {
@@ -14,6 +16,10 @@ export default () => {
 	const [info, setInfo] = useState<Array<KakaoSearchResult> | null>(null);
 	const [searchText, setSearchText] = useState<string>('');
 	const [pageAbleCount, setPageAbleCount] = useState<number>(1);
+
+	const paginate = (pageNumber) => {
+		searchApi(pageNumber);
+	};
 
 	const onSearch = async () => {
 		searchApi(1);
@@ -38,11 +44,6 @@ export default () => {
 				message.info('검색결과가 없습니다.');
 			}
 		}
-	};
-
-	const numberRelay = (num: number) => {
-		console.log('num', num);
-		searchApi(num);
 	};
 
 	const party = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,13 +79,16 @@ export default () => {
 					: null}
 			</ul>
 			{info ? (
-				<Pagination
-					showQuickJumper
-					defaultCurrent={1}
-					total={pageAbleCount}
-					onChange={numberRelay}
-					showSizeChanger={false}
-				/>
+				<div>
+					<button type="button">&lt;&lt;</button>
+					<button type="button">&lt;</button>
+					<button type="button">&gt;</button>
+					<button type="button">&gt;&gt;</button>
+					<div>
+						{/* <Posts posts={currentPosts} loading={loading} /> */}
+						<Pagination totalPosts={pageAbleCount} paginate={paginate} />
+					</div>
+				</div>
 			) : null}
 		</div>
 	);
