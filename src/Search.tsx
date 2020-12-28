@@ -13,7 +13,7 @@ interface KakaoSearchResult {
 export default () => {
 	const [info, setInfo] = useState<Array<KakaoSearchResult> | null>(null);
 	const [searchText, setSearchText] = useState<string>('');
-	const [pageAbleCount, setPageAbleCount] = useState<number | undefined>(undefined);
+	const [pageAbleCount, setPageAbleCount] = useState<number>(1);
 
 	const onSearch = async () => {
 		searchApi(1);
